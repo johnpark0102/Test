@@ -11,3 +11,5 @@ set(CMAKE_CXX_STANDARD_REQUIRED TRUE)
 project ("CMakeProject1")
 
 add_subdirectory ("app")
+
+add_subdirectory ("test")
