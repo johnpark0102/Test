@@ -1,8 +1,5 @@
-#include <iostream>
+#include <gtest/gtest.h>
 
-void hello() { std::cout << "Test" << std::endl; }
+#include "../app/Utils.hpp"
 
-int main() {
-  hello();
-  return 0;
-}
+TEST(FunctionUtils, get_name) { EXPECT_FALSE(jsp::get_name().empty()); }

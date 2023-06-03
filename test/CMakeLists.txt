@@ -1,10 +1,14 @@
+cmake_minimum_required (VERSION 3.8)
+
 enable_testing()
 
-set(TARGET "MyTest")
+find_package(GTest REQUIRED)
+
+set(TARGET "test")
 add_executable(${TARGET} test_utils.cpp)
 
-add_test(
-	NAME ${TARGET}
-	WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}
-	COMMAND ${TARGET}
+target_link_libraries(${TARGET} PRIVATE
+	GTest::GTest
+	GTest::Main
+	Threads::Threads
 )
