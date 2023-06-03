@@ -29,7 +29,7 @@ jobs:
       run: sudo apt install -y libgtest-dev
     - name: Configure gtest
       working-directory: ${{github.workspace}}/build/test
-      run: cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DENABLE_TEST
+      run: cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DENABLE_TEST=ON
     - name: Build gtest
       working-directory: ${{github.workspace}}/build/test
       run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
