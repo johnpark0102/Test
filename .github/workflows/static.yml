@@ -27,8 +27,15 @@ jobs:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     steps:
+      - name: Install doxygen
+        run: sudo apt install -y doxygen
+      - name: Configure doxygen
+        run: doxygen -g
+      - name: Run doxygen
+        run: doxygen
+        
       - name: Checkout
         uses: actions/checkout@v3
       - name: Setup Pages
@@ -37,7 +44,7 @@ jobs:
         uses: actions/upload-pages-artifact@v1
         with:
           # Upload entire repository
-          path: '.'
+          path: './doc'
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v2
