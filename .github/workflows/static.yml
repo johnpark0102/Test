@@ -31,10 +31,8 @@ jobs:
     steps:
       - name: Install doxygen
         run: sudo apt install -y doxygen
-      - name: Configure doxygen
-        run: doxygen -g
       - name: Run doxygen
-        run: doxygen
+        run: doxygen doc/Doxyfile
         
       - name: Checkout
         uses: actions/checkout@v3
