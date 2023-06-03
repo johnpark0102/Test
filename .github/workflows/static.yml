@@ -32,8 +32,8 @@ jobs:
       - name: Install doxygen
         run: sudo apt install -y doxygen
       - name: Run doxygen
-        working-directory: ${{github.workspace}}/src
-        run: doxygen ./doc/Doxyfile
+        working-directory: ${{github.workspace}}
+        run: echo $PWD && doxygen ./doc/Doxyfile
         
       - name: Checkout
         uses: actions/checkout@v3
