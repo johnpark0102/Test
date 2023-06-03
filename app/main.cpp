@@ -4,6 +4,7 @@
 
 int main() {
   try {
+    jsp::Timer tmr;
     std::cout << jsp::get_name() << std::endl;
     return 0;
   } catch (const std::exception& e) {
