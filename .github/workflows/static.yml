@@ -28,6 +28,7 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-22.04
+    
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -35,8 +36,7 @@ jobs:
       - name: Install doxygen
         run: sudo apt install -y doxygen
       - name: Run doxygen
-        working-directory: ${{github.workspace}}
-        run: echo $PWD && echo `ls $PWD` && doxygen ./src/doc/Doxyfile
+        run: echo $PWD && echo `ls $PWD` && doxygen ${{github.workspace}}/src/doc/Doxyfile
         
       - name: Setup Pages
         uses: actions/configure-pages@v3
